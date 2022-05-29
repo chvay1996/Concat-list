@@ -7,9 +7,9 @@ namespace Concat_list
     {
         static void Main(string[] args)
         {
-            List<string> list1 = new List<string> { "1", "2", "1" };
-            List<string> list2 = new List<string> { "3", "2" };
-            List<string> list = new List<string>();
+            string[] list1 = { "1", "2", "1"};
+            string[] list2 = { "2", "3"};
+           List<string> list = new List<string>();
 
             ConnectList(list, list1);
             ConnectList(list, list2);
@@ -17,16 +17,16 @@ namespace Concat_list
 
             Console.WriteLine();
 
-            CreateProcess(ref list, ref list1, ref list2);
+            CreateProcess(list);
         }
         static void WithdrawList(List<string> list)
         {
-            foreach (var item in list)
+            foreach (var namber in list)
             {
-                Console.Write($"{item} ");
+                Console.Write($"{namber} ");
             }
         }
-        static void CreateProcess(ref List<string> list, ref List<string> list1, ref List<string> list2)
+        static void CreateProcess(List<string> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -42,16 +42,16 @@ namespace Concat_list
                 }
                 if (distinct)
                 {
-                    foreach (var item in list[i])
+                    foreach (var namber in list[i])
                     {
-                        Console.Write($"{item} ");
+                        Console.Write($"{namber} ");
                     }
                 }
             }
         }
-        static List<string> ConnectList(List<string> list, List<string> list1)
+        static List<string> ConnectList(List<string> list, string[] list1)
         {
-            for (int i = 0; i < list1.Count; i++)
+            for (int i = 0; i < list1.Length; i++)
             {
                 list.Add(list1[i]);
             }
